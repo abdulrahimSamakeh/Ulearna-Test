@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:ulearna_test/core/resource/color_manger.dart';
 
 import '../../../../core/resource/image_manger.dart';
 import '../../../../core/resource/size_manger.dart';
@@ -23,12 +24,14 @@ class SplashPage extends StatelessWidget {
     timerLoad(context);
     //Page
     return Scaffold(
-      body: SizedBox(
+      backgroundColor:AppColorManger.white ,
+      body: Container(
+        color: AppColorManger.white,
         width: AppWidthManger.w100,
         height: AppHeightManger.h100,
         child: Image.asset(
           AppImageManger.splashImage,
-          fit: BoxFit.fill,
+          fit: BoxFit.contain,
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 //Color Extenstions Function
 //Convert Color From Hex
@@ -25,6 +26,11 @@ const String dateFormatter = 'yyyy/MM/dd';
 extension DateHelper on DateTime {
   bool isSameDate(DateTime other) {
     return year == other.year && month == other.month && day == other.day;
+  }
+
+  String formatDate() {
+    final formatter = DateFormat(dateFormatter);
+    return formatter.format(this);
   }
 
   int getDifferenceInDaysWithNow() {
