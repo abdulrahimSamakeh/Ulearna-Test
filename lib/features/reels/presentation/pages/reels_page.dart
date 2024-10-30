@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearna_test/features/reels/domain/entities/request/reels_request_entite.dart';
-import 'package:ulearna_test/features/reels/presentation/cubit/reels_bloc/reels_bloc.dart';
+import 'package:ulearna_test/features/reels/presentation/bloc/reels_bloc/reels_bloc.dart';
 
 import '../../../../core/resource/enum_manger.dart';
 import '../../../../core/resource/size_manger.dart';

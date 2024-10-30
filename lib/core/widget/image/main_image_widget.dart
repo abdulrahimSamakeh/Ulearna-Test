@@ -38,7 +38,7 @@ class MainImageWidget extends StatelessWidget {
             fit: BoxFit.fill,
           ),
         ),
-      ), 
+      ),
       errorWidget: (context, url, error) => Image.asset(
         AppImageManger.errorHolderImage,
         fit: fit ?? BoxFit.fill,
@@ -51,9 +51,7 @@ class MainImageWidget extends StatelessWidget {
                 AppImageManger.placeHolderImage,
                 fit: fit ?? BoxFit.fill,
               )
-            :
-            //TODO:
-             Image.asset(
+            : Image.asset(
                 AppImageManger.placeHolderImage,
                 fit: fit ?? BoxFit.fill,
               );

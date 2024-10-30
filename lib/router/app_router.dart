@@ -6,7 +6,7 @@ import '../core/navigation/fade_builder_route.dart';
 import '../core/page/not_found_page.dart';
 import '../features/intro/presentation/pages/splash_page.dart';
 import '../core/injection/injection_container.dart' as di;
-import '../features/reels/presentation/cubit/reels_bloc/reels_bloc.dart';
+import '../features/reels/presentation/bloc/reels_bloc/reels_bloc.dart';
 import '../features/reels/presentation/pages/reels_page.dart';
 
 class AppRouter {

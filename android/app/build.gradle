@@ -5,7 +5,7 @@ plugins {
     id "dev.flutter.flutter-gradle-plugin"
 }
 
-android {
+android { 
     namespace = "com.example.ulearna_test"
     compileSdk = 34
     ndkVersion = "25.1.8937393"

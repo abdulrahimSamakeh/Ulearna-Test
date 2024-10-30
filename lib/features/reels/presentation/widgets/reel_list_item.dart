@@ -13,7 +13,6 @@ import '../../../../core/resource/icon_manger.dart';
 import '../../../../core/resource/size_manger.dart';
 import '../../../../core/widget/button/svg_button.dart';
 import '../../../../core/widget/container/decorated_container.dart';
-import '../../../../core/widget/image/main_image_widget.dart';
 import '../../../../core/widget/text/app_text_widget.dart';
 
 class ReelsListItem extends StatelessWidget {
