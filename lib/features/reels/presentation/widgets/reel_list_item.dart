@@ -37,7 +37,7 @@ class ReelsListItem extends StatelessWidget {
             width: double.infinity,
             height: AppHeightManger.h30,
             child: ReelVideoWidget(
-              videoUrl: reel.cdnUrl,
+              videoPath: reel.videoPath,
             ),
           ),
           //Reel Destails

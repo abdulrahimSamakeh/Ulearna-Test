@@ -33,6 +33,12 @@ class ReelsRepositoryImplements implements ReelsRepository {
         //Calling Data Layer
         final result =
             await reelsRemote.getReels(reelsRequestEntite: reelsRequestEntite);
+        // Cache all the video URLs for the reels
+        for (var reelVideo in result.data.data) {
+          // Ensure each reel video is cached locally
+          final videoPath = await reelsLocal.cacheVideo(videoUrl: reelVideo.cdnUrl);
+          reelVideo.videoPath = videoPath;  // Assign the local path to the video
+        }
         //Return Result(Reels Data) As Right Class
         return Right(result);
       },

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:ulearna_test/core/widget/text/app_text_widget.dart';
 import 'package:ulearna_test/features/reels/presentation/widgets/reel_loading_list_item.dart';
@@ -10,10 +11,10 @@ import 'package:visibility_detector/visibility_detector.dart';
 class ReelVideoWidget extends StatefulWidget {
   const ReelVideoWidget({
     super.key,
-    required this.videoUrl,
+    required this.videoPath,
   });
 
-  final String videoUrl;
+  final String videoPath;
 
   @override
   State<ReelVideoWidget> createState() => _ReelVideoWidgetState();
@@ -42,7 +43,7 @@ class _ReelVideoWidgetState extends State<ReelVideoWidget> {
 
   void _initializeController() {
     // ignore: deprecated_member_use
-    videoController ??= VideoPlayerController.network(widget.videoUrl)
+    videoController ??= VideoPlayerController.file (File( widget.videoPath))
         ..initialize().then((_) {
           setState(() => _isInitialized = true);
           _setUpChewieController();
@@ -86,7 +87,7 @@ class _ReelVideoWidgetState extends State<ReelVideoWidget> {
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
-      key: Key(widget.videoUrl),
+      key: Key(widget.videoPath),
       onVisibilityChanged: (info) {
         if (info.visibleFraction > 0.1 && !_isInitialized) {
           _initializeController();

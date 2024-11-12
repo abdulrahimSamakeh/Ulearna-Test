@@ -14,5 +14,5 @@ import '../../../../core/error/failures.dart';
 abstract class ReelsRepository {
   //Get Articles
   Future<Either<Failure, ReelsResponseEntite>> getReels(
-      {required ReelsRequestEntite reelsRequestEntite});
+      {required ReelsRequestEntite reelsRequestEntite}); 
 }

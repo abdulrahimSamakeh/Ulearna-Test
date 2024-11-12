@@ -5,7 +5,7 @@ import 'package:ulearna_test/features/reels/data/datasources/remote/reels_remote
 import 'package:ulearna_test/features/reels/data/repositories/reels_repository_implement.dart';
 import 'package:ulearna_test/features/reels/domain/repositories/reels_repository.dart';
 import 'package:ulearna_test/features/reels/domain/usecases/get_reels_usecase.dart';
-import 'package:ulearna_test/features/reels/presentation/bloc/reels_bloc/reels_bloc.dart';
+import 'package:ulearna_test/features/reels/presentation/bloc/reels_bloc/reels_bloc.dart'; 
 import '../theme/theme_cubit/theme_cubit.dart';
 
 //Get It Global Instance
@@ -16,10 +16,10 @@ final sl = GetIt.instance;
 Future<void> init() async {
 //!Features - Reels
 //Blocs
-  sl.registerFactory(() => ReelsBloc(usecase: sl()));
+  sl.registerFactory(() => ReelsBloc(usecase: sl())); 
 
   //Usecases
-  sl.registerLazySingleton(() => GetReelsUsecase(reelsRepository: sl()));
+  sl.registerLazySingleton(() => GetReelsUsecase(reelsRepository: sl())); 
 
   // Reposetories
   sl.registerLazySingleton<ReelsRepository>(

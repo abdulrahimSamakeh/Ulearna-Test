@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dartz/dartz.dart';
 import 'package:ulearna_test/features/reels/domain/entities/request/reels_request_entite.dart';
 import 'package:ulearna_test/features/reels/domain/entities/response/reels_response_entite.dart';

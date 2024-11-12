@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ulearna_test/features/reels/domain/entities/request/reels_request_entite.dart';
 import 'package:ulearna_test/features/reels/presentation/bloc/reels_bloc/reels_bloc.dart';
 
+import '../../../../core/function/caching_functions.dart';
 import '../../../../core/resource/enum_manger.dart';
 import '../../../../core/resource/size_manger.dart';
 import '../../../../core/widget/app_bar/main_app_bar.dart';
@@ -13,8 +14,21 @@ import '../../../../core/widget/snack_bar/note_message.dart';
 import '../widgets/reel_list_item.dart';
 import '../widgets/reel_loading_list_item.dart';
 
-class ReelsPage extends StatelessWidget {
+class ReelsPage extends StatefulWidget {
   const ReelsPage({super.key});
+
+  @override
+  State<ReelsPage> createState() => _ReelsPageState();
+}
+
+class _ReelsPageState extends State<ReelsPage> {
+  
+  @override
+  void dispose() {
+    // Clear the videos cache when the app is closed 
+    clearVideoCache();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,4 +155,5 @@ class ReelsPage extends StatelessWidget {
       ),
     );
   }
+ 
 }

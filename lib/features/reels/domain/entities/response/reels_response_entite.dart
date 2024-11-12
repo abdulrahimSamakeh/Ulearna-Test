@@ -3,6 +3,7 @@
 //     final reelsResponseEntite = reelsResponseEntiteFromJson(jsonString);
 
 import 'dart:convert';
+import 'dart:io';
 
 ReelsResponseEntite reelsResponseEntiteFromJson(String str) =>
     ReelsResponseEntite.fromJson(json.decode(str));
@@ -95,6 +96,7 @@ class Datum {
   final bool isWished;
   final bool isFollow;
   final String videoAspectRatio;
+  String videoPath;
 
   Datum({
     required this.id,
@@ -129,9 +131,11 @@ class Datum {
     required this.isWished,
     required this.isFollow,
     required this.videoAspectRatio,
+    required this.videoPath,
   });
 
   factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+        videoPath: '',
         id: json["id"] ?? 0,
         title: json["title"] ?? "",
         url: json["url"] ?? "",

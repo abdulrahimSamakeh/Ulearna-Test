@@ -43,7 +43,7 @@ class ReelsBloc extends Bloc<GetReelsEvent, ReelsState> {
               cubitStatus: CubitStatus.error,
               loadPagination: false));
         },
-        (data) {
+        (data) {     
           event.reelsRequestEntite.page++;
           if (event.reset) {
             state.reelsResponseEntite.data.data.clear();
