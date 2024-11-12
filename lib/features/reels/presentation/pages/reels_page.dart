@@ -76,7 +76,6 @@ class _ReelsPageState extends State<ReelsPage> {
                             if (state.loadPagination == false) {
                               if (state.haveReachedMax == false &&
                                   state.loadPagination == false) {
-                                print("Http: ${reelsRequestEntite.toJson()}");
                                 context.read<ReelsBloc>().add(GetReelsEvent(
                                     reset: false,
                                     paginationLoading: true,
