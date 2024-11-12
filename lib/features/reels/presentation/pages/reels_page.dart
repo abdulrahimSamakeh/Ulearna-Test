@@ -22,10 +22,9 @@ class ReelsPage extends StatefulWidget {
 }
 
 class _ReelsPageState extends State<ReelsPage> {
-  
   @override
   void dispose() {
-    // Clear the videos cache when the app is closed 
+    // Clear the video cache when the app is closed
     clearVideoCache();
     super.dispose();
   }
@@ -33,6 +32,7 @@ class _ReelsPageState extends State<ReelsPage> {
   @override
   Widget build(BuildContext context) {
     ReelsRequestEntite reelsRequestEntite = ReelsRequestEntite.initial();
+    reelsRequestEntite.page++;
     return Scaffold(
       appBar: const MainAppBar(
         centerTitle: true,
@@ -76,6 +76,7 @@ class _ReelsPageState extends State<ReelsPage> {
                             if (state.loadPagination == false) {
                               if (state.haveReachedMax == false &&
                                   state.loadPagination == false) {
+                                print("Http: ${reelsRequestEntite.toJson()}");
                                 context.read<ReelsBloc>().add(GetReelsEvent(
                                     reset: false,
                                     paginationLoading: true,
@@ -155,5 +156,4 @@ class _ReelsPageState extends State<ReelsPage> {
       ),
     );
   }
- 
 }
