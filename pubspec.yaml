@@ -37,6 +37,7 @@ dependencies:
   dartz: ^0.10.1
   easy_localization: ^3.0.7
   equatable: ^2.0.5
+  json_annotation:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
@@ -50,9 +51,11 @@ dependencies:
   shared_preferences: ^2.3.2
   shimmer: ^3.0.0
   visibility_detector: ^0.4.0+2
+  json_serializable:
 
 dev_dependencies:
   flutter_lints: ^4.0.0
+  build_runner: ^2.4.13
   flutter_test:
     sdk: flutter
 

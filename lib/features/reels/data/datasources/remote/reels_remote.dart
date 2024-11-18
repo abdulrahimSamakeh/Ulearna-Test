@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:ulearna_test/features/reels/domain/entities/request/reels_request_entite.dart';
 import 'package:ulearna_test/features/reels/domain/entities/response/reels_response_entite.dart';
 
@@ -24,7 +26,7 @@ class ReelsRemoteImplements extends ReelsRemote {
     //Check Response
     if (response.statusCode == 200) {
       //Parsing Response Data to Dart Class To Deal With it
-      return reelsResponseEntiteFromJson(response.body);
+      return ReelsResponseEntite.fromJson(json.decode(response.body));
     } else {
       //Handeling Other Exception
       throw ServerException(response: response);

@@ -15,7 +15,7 @@ class ReelsState extends Equatable {
 
   factory ReelsState.initial() {
     return ReelsState(
-        reelsResponseEntite: ReelsResponseEntite.initial(),
+        reelsResponseEntite: ReelsResponseEntite.fromJson({}),
         cubitStatus: CubitStatus.loading,
         haveReachedMax: false,
         loadPagination: false,

@@ -1,15 +1,8 @@
-// To parse this JSON data, do
-//
-//     final reelsResponseEntite = reelsResponseEntiteFromJson(jsonString);
+import 'package:json_annotation/json_annotation.dart';
 
-import 'dart:convert';
+part 'reels_response_entite.g.dart';
 
-ReelsResponseEntite reelsResponseEntiteFromJson(String str) =>
-    ReelsResponseEntite.fromJson(json.decode(str));
-
-String reelsResponseEntiteToJson(ReelsResponseEntite data) =>
-    json.encode(data.toJson());
-
+@JsonSerializable()
 class ReelsResponseEntite {
   final int statusCode;
   final String message;
@@ -21,25 +14,14 @@ class ReelsResponseEntite {
     required this.data,
   });
 
-  //Make Initial Factory For Entite
-  factory ReelsResponseEntite.initial() {
-    return reelsResponseEntiteFromJson('{}');
-  }
+  // Factory constructor for generating a ReelsResponseEntite instance from JSON
+  factory ReelsResponseEntite.fromJson(Map<String, dynamic> json) => _$ReelsResponseEntiteFromJson(json);
 
-  factory ReelsResponseEntite.fromJson(Map<String, dynamic> json) =>
-      ReelsResponseEntite(
-        statusCode: json["statusCode"] ?? 0,
-        message: json["message"] ?? '',
-        data: Data.fromJson(json["data"] ?? {}),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "statusCode": statusCode,
-        "message": message,
-        "data": data.toJson(),
-      };
+  // Method for converting a ReelsResponseEntite instance to JSON
+  Map<String, dynamic> toJson() => _$ReelsResponseEntiteToJson(this);
 }
 
+@JsonSerializable()
 class Data {
   final List<Datum> data;
   final MetaData metaData;
@@ -49,19 +31,12 @@ class Data {
     required this.metaData,
   });
 
-  factory Data.fromJson(Map<String, dynamic> json) => Data(
-        data: json["data"] == null
-            ? []
-            : List<Datum>.from(json["data"].map((x) => Datum.fromJson(x))),
-        metaData: MetaData.fromJson(json["meta_data"] ?? {}),
-      );
+  factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "data": List<dynamic>.from(data.map((x) => x.toJson())),
-        "meta_data": metaData.toJson(),
-      };
+  Map<String, dynamic> toJson() => _$DataToJson(this);
 }
 
+@JsonSerializable()
 class Datum {
   final int id;
   final String title;
@@ -133,78 +108,12 @@ class Datum {
     required this.videoPath,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
-        videoPath: '',
-        id: json["id"] ?? 0,
-        title: json["title"] ?? "",
-        url: json["url"] ?? "",
-        cdnUrl: json["cdn_url"] ?? "",
-        thumbCdnUrl: json["thumb_cdn_url"] ?? "",
-        userId: json["user_id"] ?? 0,
-        status: json["status"] ?? "",
-        slug: json["slug"] ?? "",
-        encodeStatus: json["encode_status"] ?? "",
-        priority: json["priority"] ?? 0,
-        categoryId: json["category_id"] ?? 0,
-        totalViews: json["total_views"] ?? 0,
-        totalLikes: json["total_likes"] ?? 0,
-        totalComments: json["total_comments"] ?? 0,
-        totalShare: json["total_share"] ?? 0,
-        totalWishlist: json["total_wishlist"] ?? 0,
-        duration: json["duration"] ?? 0,
-        byteAddedOn: DateTime.parse(json["byte_added_on"] ?? DateTime(0)),
-        byteUpdatedOn: DateTime.parse(json["byte_updated_on"] ?? DateTime(0)),
-        bunnyStreamVideoId: json["bunny_stream_video_id"] ?? 0,
-        language: json["language"] ?? '',
-        bunnyEncodingStatus: json["bunny_encoding_status"] ?? 0,
-        videoHeight: json["video_height"] ?? 0,
-        videoWidth: json["video_width"] ?? 0,
-        isPrivate: json["is_private"] ?? 0,
-        isHideComment: json["is_hide_comment"] ?? 0,
-        description: json["description"] ?? '',
-        user: User.fromJson(json["user"] ?? {}),
-        isLiked: json["is_liked"] ?? false,
-        isWished: json["is_wished"] ?? false,
-        isFollow: json["is_follow"] ?? false,
-        videoAspectRatio: json["video_aspect_ratio"] ?? "",
-      );
+  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": title,
-        "url": url,
-        "cdn_url": cdnUrl,
-        "thumb_cdn_url": thumbCdnUrl,
-        "user_id": userId,
-        "status": status,
-        "slug": slug,
-        "encode_status": encodeStatus,
-        "priority": priority,
-        "category_id": categoryId,
-        "total_views": totalViews,
-        "total_likes": totalLikes,
-        "total_comments": totalComments,
-        "total_share": totalShare,
-        "total_wishlist": totalWishlist,
-        "duration": duration,
-        "byte_added_on": byteAddedOn.toIso8601String(),
-        "byte_updated_on": byteUpdatedOn.toIso8601String(),
-        "bunny_stream_video_id": bunnyStreamVideoId,
-        "language": language,
-        "bunny_encoding_status": bunnyEncodingStatus,
-        "video_height": videoHeight,
-        "video_width": videoWidth,
-        "is_private": isPrivate,
-        "is_hide_comment": isHideComment,
-        "description": description,
-        "user": user.toJson(),
-        "is_liked": isLiked,
-        "is_wished": isWished,
-        "is_follow": isFollow,
-        "video_aspect_ratio": videoAspectRatio,
-      };
+  Map<String, dynamic> toJson() => _$DatumToJson(this);
 }
 
+@JsonSerializable()
 class User {
   final int userId;
   final String fullname;
@@ -222,25 +131,12 @@ class User {
     required this.designation,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) => User(
-        userId: json["user_id"] ?? 0,
-        fullname: json["fullname"] ?? "",
-        username: json["username"] ?? "",
-        profilePicture: json["profile_picture"] ?? "",
-        profilePictureCdn: json["profile_picture_cdn"] ?? "",
-        designation: json["designation"] ?? "",
-      );
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "user_id": userId,
-        "fullname": fullname,
-        "username": username,
-        "profile_picture": profilePicture,
-        "profile_picture_cdn": profilePictureCdn,
-        "designation": designation,
-      };
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }
 
+@JsonSerializable()
 class MetaData {
   final int total;
   final int page;
@@ -252,15 +148,7 @@ class MetaData {
     required this.limit,
   });
 
-  factory MetaData.fromJson(Map<String, dynamic> json) => MetaData(
-        total: json["total"] ?? 0,
-        page: json["page"] ?? 0,
-        limit: json["limit"] ?? 0,
-      );
+  factory MetaData.fromJson(Map<String, dynamic> json) => _$MetaDataFromJson(json);
 
-  Map<String, dynamic> toJson() => {
-        "total": total,
-        "page": page,
-        "limit": limit,
-      };
+  Map<String, dynamic> toJson() => _$MetaDataToJson(this);
 }
