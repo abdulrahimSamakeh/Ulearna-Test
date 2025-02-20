@@ -56,7 +56,7 @@ Datum _$DatumFromJson(Map<String, dynamic> json) => Datum(
         duration: json["duration"] ?? 0,
         byteAddedOn: DateTime.parse(json["byte_added_on"] ?? DateTime(0)),
         byteUpdatedOn: DateTime.parse(json["byte_updated_on"] ?? DateTime(0)),
-        bunnyStreamVideoId: json["bunny_stream_video_id"] ?? 0,
+        bunnyStreamVideoId: json["bunny_stream_video_id"] ?? "",
         language: json["language"] ?? '',
         bunnyEncodingStatus: json["bunny_encoding_status"] ?? 0,
         videoHeight: json["video_height"] ?? 0,
